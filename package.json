@@ -1,6 +1,6 @@
 {
   "name": "obsidian-insert-week",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Insert a dated week template (Monday-Sunday headings with checkboxes) using a command and a configurable modal.",
   "main": "main.js",
   "scripts": {
