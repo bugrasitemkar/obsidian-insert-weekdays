@@ -1,8 +1,8 @@
 {
   "id": "insert-week",
   "name": "Insert Week",
-  "version": "1.0.2",
-  "minAppVersion": "1.0.0",
+  "version": "1.0.3",
+  "minAppVersion": "1.13.0",
   "description": "Insert a dated week template with day headings and checkboxes. Choose the week of the year and the first day of the week.",
   "author": "Bugra Sitemkar",
   "authorUrl": "https://github.com/bugrasitemkar",

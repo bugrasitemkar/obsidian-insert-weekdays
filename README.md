@@ -2,11 +2,11 @@
 
 An [Obsidian](https://obsidian.md) plugin that inserts a dated weekly template — one `## Weekday + ordinal` heading per day, each with an unticked checkbox underneath.
 
-Use the **Insert week** command, choose which week of the year to insert, and pick whether weeks start on Monday or Sunday.
+Use the **Weekly template** command, choose which week of the year to insert, and pick whether weeks start on Monday or Sunday.
 
 ## Features
 
-- **Command palette action** — run **Insert week** from anywhere in the editor.
+- **Command palette action** — run **Weekly template** from anywhere in the editor.
 - **Week picker** — a dropdown of every week in the year, labelled with its date range, pre-selected to the week of today.
 - **Start day toggle** — Monday (default) or Sunday, changeable in the modal.
 - **Persistent setting** — set the default start day once in **Settings → Insert Week**.
@@ -51,7 +51,7 @@ With a Sunday start, the same week begins on **Sunday 27th** instead.
 ## Usage
 
 1. Open a note in the editor.
-2. Open the command palette (`Cmd/Ctrl + P`) and run **Insert week**.
+2. Open the command palette (`Cmd/Ctrl + P`) and run **Weekly template**.
 3. Pick the **week of the year** and the **start day of the week**.
 4. Click **Insert** — the template is inserted at your cursor.
 
@@ -64,6 +64,8 @@ The week number is inferred from today's date, following ISO-8601 week numbering
 | Default start day of the week | Used every time the **Insert week** modal opens. | Monday |
 
 ## Installation
+
+> Requires Obsidian **1.13.0** or later.
 
 ### Manual (from a release)
 

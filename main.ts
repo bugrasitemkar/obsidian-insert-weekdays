@@ -1,4 +1,10 @@
-import { App, Editor, Plugin, PluginSettingTab, Setting } from "obsidian";
+import {
+  App,
+  Editor,
+  Plugin,
+  PluginSettingTab,
+  SettingDefinitionItem,
+} from "obsidian";
 import { InsertWeekModal } from "./insert-week-modal";
 import { StartDay } from "./week";
 
@@ -17,8 +23,8 @@ export default class InsertWeekPlugin extends Plugin {
     await this.loadSettings();
 
     this.addCommand({
-      id: "insert-week",
-      name: "Insert week",
+      id: "weekly-template",
+      name: "Weekly template",
       editorCallback: (editor: Editor) => {
         new InsertWeekModal(this.app, this.settings.startDay, (markdown) => {
           editor.replaceSelection(markdown);
@@ -30,7 +36,8 @@ export default class InsertWeekPlugin extends Plugin {
   }
 
   async loadSettings(): Promise<void> {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const data = (await this.loadData()) as Partial<InsertWeekSettings> | null;
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, data);
   }
 
   async saveSettings(): Promise<void> {
@@ -46,22 +53,34 @@ class InsertWeekSettingTab extends PluginSettingTab {
     this.plugin = plugin;
   }
 
-  display(): void {
-    const { containerEl } = this;
-    containerEl.empty();
-    containerEl.createEl("h2", { text: "Insert Week settings" });
+  getSettingDefinitions(): SettingDefinitionItem[] {
+    return [
+      {
+        name: "Default start day of the week",
+        desc: "Used every time the Insert week modal opens.",
+        control: {
+          key: "startDay",
+          type: "dropdown",
+          options: { "1": "Monday", "0": "Sunday" },
+          defaultValue: "1",
+        },
+      },
+    ];
+  }
 
-    new Setting(containerEl)
-      .setName("Default start day of the week")
-      .setDesc("Used every time the Insert week modal opens.")
-      .addDropdown((dropdown) => {
-        dropdown.addOption("1", "Monday");
-        dropdown.addOption("0", "Sunday");
-        dropdown.setValue(String(this.plugin.settings.startDay));
-        dropdown.onChange(async (value) => {
-          this.plugin.settings.startDay = Number(value) === 0 ? 0 : 1;
-          await this.plugin.saveSettings();
-        });
-      });
+  getControlValue(key: string): unknown {
+    if (key === "startDay") {
+      return String(this.plugin.settings.startDay);
+    }
+    return super.getControlValue(key);
+  }
+
+  async setControlValue(key: string, value: unknown): Promise<void> {
+    if (key === "startDay") {
+      this.plugin.settings.startDay = value === "0" ? 0 : 1;
+      await this.plugin.saveSettings();
+      return;
+    }
+    await super.setControlValue(key, value);
   }
 }
