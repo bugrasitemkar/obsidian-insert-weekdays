@@ -1,0 +1,16 @@
+# Build output
+main.js
+main.js.map
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log

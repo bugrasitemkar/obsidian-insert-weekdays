@@ -1,0 +1,29 @@
+.insert-week-modal {
+  min-width: min(560px, 90vw);
+}
+
+.insert-week-hint {
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+  margin-top: -0.5em;
+}
+
+.insert-week-preview {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: var(--size-4-3);
+  max-height: 260px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-family: var(--font-monospace);
+  font-size: var(--font-smaller);
+  color: var(--text-normal);
+}
+
+.insert-week-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--size-4-2);
+  margin-top: var(--size-4-3);
+}
