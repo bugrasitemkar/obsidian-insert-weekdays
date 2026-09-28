@@ -1,6 +1,6 @@
 {
   "name": "obsidian-insert-week",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Insert a dated week template (Monday-Sunday headings with checkboxes) using a command and a configurable modal.",
   "main": "main.js",
   "scripts": {
@@ -16,8 +16,16 @@
     "week",
     "weekly"
   ],
-  "author": "",
+  "author": "Bugra Sitemkar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bugrasitemkar/obsidian-insert-weekdays.git"
+  },
+  "homepage": "https://github.com/bugrasitemkar/obsidian-insert-weekdays#readme",
+  "bugs": {
+    "url": "https://github.com/bugrasitemkar/obsidian-insert-weekdays/issues"
+  },
   "devDependencies": {
     "@types/node": "^18.19.0",
     "builtin-modules": "^3.3.0",
